@@ -1,0 +1,133 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    header {
+        text-align: center;
+        padding: 10px;
+        h1 {
+            overflow: hidden; /* Ensures the content is not revealed until the animation */
+            white-space: nowrap; /* Keeps the content on a single line */
+            margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+            letter-spacing: .15em; /* Adjust as needed */ 
+            &.welcome.animation {
+                overflow: hidden; /* Ensures the content is not revealed until the animation */
+                animation:  typing 3.5s steps(40, end);
+            }
+            &.name.animation {
+                animation: typing 3.5s steps(40, end);
+                animation-delay: 2s;
+                opacity: 0;
+                animation-fill-mode: forwards;
+            }
+        }
+    }
+    
+    section {
+        text-align: center;
+        padding: 10px;
+        h1 {
+            overflow: hidden; /* Ensures the content is not revealed until the animation */
+            // border-right: .15em solid orange; /* The typwriter cursor */
+            white-space: nowrap; /* Keeps the content on a single line */
+            margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+            letter-spacing: .15em; /* Adjust as needed */ 
+            animation: typing 3.5s steps(40, end);
+            animation-delay: 5.5s;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+        .card {
+            display: inline-block;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,.3);
+            margin: 20px 30px;
+            position: relative;
+            width:400px;
+            height:400px;
+            background: #bbb;
+            opacity: 0.8;
+            border-radius: 10px;
+            cursor: pointer;
+            &.personal.animation {
+                animation: fadeFromLeft 1.3s ease-in-out 0s forwards;
+                animation-delay: 8.2s;
+                opacity:0
+            }
+            &.professional.animation {
+                animation: fadeFromRight 1.3s ease-in-out 0s forwards;
+                animation-delay: 8.2s;
+                opacity:0
+            }
+            &:hover {
+                box-shadow: 0 8px 16px 0 rgba(0,0,0,.4);
+            }
+            .img-container {
+                margin: 15px 10px;
+                img {
+                    width: 200px;
+                    height: 200px;
+                    border: 1px solid;
+                    border-radius: 25%;
+                    padding: 10px;
+                    background-color: #ccc;
+                }
+            }
+            ul {
+                padding: 20px;
+                width: 110px;
+                text-align: left;
+                margin-left: 50%;
+                transform: translate(-50%, 0);
+                line-height: 22px;
+                list-style-type: none;
+                width: 145px;
+                li:before {
+                    content: "-";
+                    text-indent: -5px;
+                    margin-right: 10px;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
+
+@keyframes typing {
+    0% {
+      width: 0;
+    }
+    1% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 1;
+      width: 100%
+    }
+}
+
+@keyframes fadeFromRight {
+    from { 
+      opacity: 0;
+      transform: translateX(50px);
+    }
+  
+    to {
+      opacity: 1;
+      transform: none;
+    }
+}
+
+@keyframes fadeFromLeft {
+    from { 
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+  
+    to {
+      opacity: 1;
+      transform: none;
+    }
+}
